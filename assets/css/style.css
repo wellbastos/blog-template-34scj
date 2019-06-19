@@ -1,0 +1,26 @@
+#searchResult {
+  visibility: hidden;
+  position: absolute;
+  top: 33px;
+  left: 0;
+  background: white;
+  border: 1px solid gray;
+  padding: 10px;
+  z-index: 3;
+  list-style: none;
+}
+#searchResult li {
+  border-bottom: 1px solid gray;
+}
+#searchResult li:nth-last-child(1) {
+  border-bottom: none;
+}
+#submitSearch {
+  display: inline-block;
+  color: blue;
+  text-decoration: none;
+}
+#searchLink {
+  background: none;
+  border: none;
+}
