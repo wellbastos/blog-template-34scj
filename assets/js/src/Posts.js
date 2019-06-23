@@ -1,7 +1,9 @@
 const URL = "https://5d04064fd1471e00149bb174.mockapi.io/api/v1/blogs";
 
+// JAVASCRIPT ES6 CLASS
 class Posts {
 
+    // METHOD/FUNCTIONS
     getPosts() {
         fetch(URL).then(function (response) {
             if (response.ok) {
@@ -42,11 +44,11 @@ class Posts {
     };
 
     searchPost(q) {
-        fetch(URL + `?search=${q}`)
-            .then(response => response.json())
+        fetch(URL + `?search=${q}`) // fetch API
+            .then(response => response.json()) // Promise
             .then(json => {
                 let searchResult = document.querySelector("#searchResult");
-                let result = json.map(result => (
+                let result = json.map(result => ( // map array functional
                     `<li><a href='post.html?${result.id}'>${result.title + "<br>" + result.body}</a></li>`
                 )).join("");
                 searchResult.style.visibility = "visible";
@@ -69,8 +71,10 @@ class Posts {
     }
 
     updateText(min, max) {
-        const random = Math.random() * (min, max);
-        const floor = Math.floor(random);
+        const random = Math.random() * (min, max); // math random number
+        // console.log("random => ", random);
+        const floor = Math.floor(random); // arredondamento
+        console.log("floor => ", floor);
         fetch(URL + '/' + floor)
             .then(response => response.json())
             .then(post => {
@@ -80,5 +84,4 @@ class Posts {
     }
 };
 
-export default Posts;
-//console
+export default Posts; // export default es6

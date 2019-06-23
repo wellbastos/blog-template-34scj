@@ -1,8 +1,21 @@
 # Blog Template
 
-## Parte 1
+JavaScript Bootstrap Blog Template with examples of Module Pattern, ES6 Classes and Export/Import, WebPack, Babel and Fetch Requests API and updates DOM.
 
-### Listar posts de uma API
+## Setup
+
+```
+npm install
+npm run start
+```
+
+## WebPack
+
+```
+npm run watch
+```
+
+## Assuntos Abordados
 
 **Web APIs - functions/interfaces**
 
@@ -78,7 +91,8 @@
 - IIFE
 - Module Pattern
 - CommonJS
--
+- Exports/Imports
+- Require
 ```
 
 **Diversos - misc**

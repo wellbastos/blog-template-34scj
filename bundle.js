@@ -60,7 +60,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var URL = location.pathname;
+	var URL = location.pathname; // location é objeto do DOM (window.location)
 	var POST_ID = location.search.substring(1);
 	var posts = new _Posts2.default();
 	
@@ -70,12 +70,6 @@
 	    }
 	
 	    _createClass(Init, [{
-	        key: 'index',
-	        value: function index() {
-	            _search2.default.openSearch();
-	            posts.getPosts();
-	        }
-	    }, {
 	        key: 'start',
 	        value: function start() {
 	            if (URL === '/index.html') {
@@ -88,6 +82,13 @@
 	            } else {
 	                this.index();
 	            }
+	        }
+	    }], [{
+	        key: 'index',
+	        value: function index() {
+	            // usado somente dentro da classe
+	            _search2.default.openSearch();
+	            posts.getPosts();
 	        }
 	    }]);
 	
@@ -114,6 +115,8 @@
 	
 	var URL = "https://5d04064fd1471e00149bb174.mockapi.io/api/v1/blogs";
 	
+	// JAVASCRIPT ES6 CLASS
+	
 	var Posts = function () {
 	    function Posts() {
 	        _classCallCheck(this, Posts);
@@ -121,6 +124,9 @@
 	
 	    _createClass(Posts, [{
 	        key: "getPosts",
+	
+	
+	        // METHOD/FUNCTIONS
 	        value: function getPosts() {
 	            fetch(URL).then(function (response) {
 	                if (response.ok) {
@@ -154,12 +160,16 @@
 	    }, {
 	        key: "searchPost",
 	        value: function searchPost(q) {
-	            fetch(URL + ("?search=" + q)).then(function (response) {
+	            fetch(URL + ("?search=" + q)) // fetch API
+	            .then(function (response) {
 	                return response.json();
-	            }).then(function (json) {
+	            }) // Promise
+	            .then(function (json) {
 	                var searchResult = document.querySelector("#searchResult");
 	                var result = json.map(function (result) {
-	                    return "<li><a href='post.html?" + result.id + "'>" + (result.title + "<br>" + result.body) + "</a></li>";
+	                    return (// map array functional
+	                        "<li><a href='post.html?" + result.id + "'>" + (result.title + "<br>" + result.body) + "</a></li>"
+	                    );
 	                }).join("");
 	                searchResult.style.visibility = "visible";
 	                searchResult.innerHTML = result;
@@ -181,8 +191,10 @@
 	    }, {
 	        key: "updateText",
 	        value: function updateText(min, max) {
-	            var random = Math.random() * (min, max);
-	            var floor = Math.floor(random);
+	            var random = Math.random() * (min, max); // math random number
+	            // console.log("random => ", random);
+	            var floor = Math.floor(random); // arredondamento
+	            console.log("floor => ", floor);
 	            fetch(URL + '/' + floor).then(function (response) {
 	                return response.json();
 	            }).then(function (post) {
@@ -197,8 +209,7 @@
 	
 	;
 	
-	exports.default = Posts;
-	//console
+	exports.default = Posts; // export default es6
 
 /***/ }),
 /* 2 */
@@ -216,6 +227,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// MODULE DESIGN PATTERN
+	// IIFE
+	// IMPORT / EXPORT ES6
 	var SEARCH = function () {
 	    return {
 	        openSearch: function openSearch() {
@@ -245,12 +259,11 @@
 	            posts1.searchPost(searchTerm);
 	        },
 	        updateButton: function updateButton() {
-	            var posts1 = new _Posts2.default();
+	            var postsUpdate = new _Posts2.default();
 	            document.querySelector("#updateButton").addEventListener("click", function () {
-	                posts1.updateText(0, 50);
+	                postsUpdate.updateText(0, 50);
 	            });
 	        }
-	
 	    };
 	}();
 	

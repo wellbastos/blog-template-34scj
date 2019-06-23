@@ -1,13 +1,13 @@
 import Posts from './Posts.js';
 import SEARCH from './search.js';
 
-const URL = location.pathname;
+const URL = location.pathname; // location é objeto do DOM (window.location)
 const POST_ID = location.search.substring(1);
 const posts = new Posts();
 
 class Init {
 
-    index() {
+    static index() { // usado somente dentro da classe
         SEARCH.openSearch();
         posts.getPosts();
     }

@@ -38,16 +38,22 @@
           <div class="col-4 text-center">
             <a class="blog-header-logo text-dark" href="#">Large</a>
           </div>
+
+          <!-- SEARCH BOX -->
           <div
             id="searchBox"
             class="col-4 d-flex justify-content-end align-items-center"
           >
+            <!-- INPUT AND SUBMIT -->
             <div id="searchDiv" style="display: none">
               <input id="searchTerm" type="search" class="col-7" value="" />
               <button id="submitSearch" class="col-4">Enviar</button>
             </div>
+
+            <!-- LIST RESULTS UL -->
             <ul id="searchResult"></ul>
 
+            <!-- SEARCH BUTTON -->
             <button id="searchLink" class="text-muted">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +73,7 @@
             </button>
             <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
           </div>
+          <!-- END SEARCH BOX -->
         </div>
       </header>
 
@@ -251,6 +258,7 @@
         text: "Thumbnail"
       });
     </script>
+    <!-- JS SCRIPTS BUNDLE BY WEBPACK -->
     <script src="bundle.js"></script>
   </body>
 </html>

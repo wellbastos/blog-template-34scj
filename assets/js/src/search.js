@@ -1,5 +1,8 @@
 import Posts from "./Posts";
 
+// MODULE DESIGN PATTERN
+// IIFE
+// IMPORT / EXPORT ES6
 const SEARCH = (function () {
     return {
         openSearch: function () {
@@ -34,11 +37,10 @@ const SEARCH = (function () {
             posts1.searchPost(searchTerm);
         },
         updateButton: function () {
-            const posts1 = new Posts;
+            const postsUpdate = new Posts;
             document.querySelector("#updateButton")
-                .addEventListener("click", function () { posts1.updateText(0, 50) });
+                .addEventListener("click", function () { postsUpdate.updateText(0, 50) });
         }
-
     };
 })();
 
