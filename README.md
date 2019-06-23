@@ -12,6 +12,7 @@ npm run start
 ## WebPack
 
 ```
+npm install -g webpack-cli
 npm run watch
 ```
 

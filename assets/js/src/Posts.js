@@ -72,9 +72,9 @@ class Posts {
 
     updateText(min, max) {
         const random = Math.random() * (min, max); // math random number
-        // console.log("random => ", random);
+        console.log("random => ", random);
         const floor = Math.floor(random); // arredondamento
-        console.log("floor => ", floor);
+        console.log("post floor => ", floor);
         fetch(URL + '/' + floor)
             .then(response => response.json())
             .then(post => {

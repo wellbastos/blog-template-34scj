@@ -7,7 +7,7 @@ const posts = new Posts();
 
 class Init {
 
-    static index() { // usado somente dentro da classe
+    index() {
         SEARCH.openSearch();
         posts.getPosts();
     }
