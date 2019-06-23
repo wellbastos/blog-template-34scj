@@ -41,6 +41,7 @@ npm run watch
 - Function.prototype
 - Math.random()
 - Math.floor()
+- Regex.prototype.match()
 
 ```
 

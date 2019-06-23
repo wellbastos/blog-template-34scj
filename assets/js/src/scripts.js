@@ -1,7 +1,6 @@
 import Posts from './Posts.js';
 import SEARCH from './search.js';
 
-const URL = location.pathname; // location é objeto do DOM (window.location)
 const POST_ID = location.search.substring(1);
 const posts = new Posts();
 
@@ -13,14 +12,23 @@ class Init {
     }
 
     start() {
-        if (URL === '/index.html') {
+        // const regex = URL == "/(.*?)\/index.html/gm";
+        const regexIndex = location.pathname.match(/(.*?)\/index.html/) ? true : false;
+        const regexPost = location.pathname.match(/(.*?)\/post.html/) ? true : false;
+        // console.log("pathname before regex", URL.pathname);
+        if (regexIndex) {
+            // console.log("index page");
+            // console.log("pathname", URL.pathname);
             this.index();
-        } else if (URL === '/post.html') {
+        } else if (regexPost) {
             SEARCH.openSearch();
             SEARCH.updateButton();
             posts.getPost(POST_ID)
-            console.log("my posts");
+            // console.log("pathname", URL.pathname);
+            // console.log("post page");
         } else {
+            // console.log("no route specified");
+            // console.log("pathname", URL.pathname);
             this.index();
         }
     }

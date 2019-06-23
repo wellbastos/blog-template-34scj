@@ -17,7 +17,7 @@ module.exports = {
     },
     stats: { colors: true }, // color output 
     devtool: 'source-map', // facilita localizar o código compilado
-    mode: 'development'
+    mode: 'production'
 };
 
 
